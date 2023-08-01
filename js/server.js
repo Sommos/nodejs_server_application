@@ -41,6 +41,7 @@ const fileOps = async () => {
     try {
         const data = await fsPromises.readFile(path.join(__dirname, 'assets', 'lorem.txt'), 'utf8');
         console.log(data);
+        await fsPromises.unlink(path.join(__dirname, 'assets', 'promise_write.txt'));
         await fsPromises.writeFile(path.join(__dirname, 'assets', 'promise_write.txt'), data);
         await fsPromises.appendFile(path.join(__dirname, 'assets', 'promise_write.txt'), '\n\nPromise Append File Test.');
         await fsPromises.rename(path.join(__dirname, 'assets', 'promise_write.txt'), path.join(__dirname, 'assets', 'new_promise_write.txt'));
