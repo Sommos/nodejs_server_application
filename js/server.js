@@ -47,6 +47,20 @@ fs.readFile(path.join(__dirname, 'assets', 'lorem.txt'), 'utf8', (err, data) => 
 // asynchronous allows for this to run while the file is being read
 console.log('Hello...');
 
+fs.writeFile(path.join(__dirname, 'assets', 'write.txt'), 'Write File Test.', (err) => {
+    if (err) {
+        throw err;
+    }
+    console.log('Write Complete');
+
+    fs.appendFile(path.join(__dirname, 'assets', 'write.txt'), '\n\nAppend File Test.', (err) => {
+        if (err) {
+            throw err;
+        }
+        console.log('Append Complete');
+    });
+});
+
 process.on('uncaughtException', err => {
     console.error(`There was an uncaught error: , ${err}`);
     process.exit(1);
