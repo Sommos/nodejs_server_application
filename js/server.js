@@ -1,7 +1,8 @@
+/* // #1
 // nodejs runs on a server, not in a clients browser
-// console.log("Hello World!");
+console.log("Hello World!");
 // global object instead of a window object
-// console.log(global);
+console.log(global);
 // import modules
 const os = require('os');
 const path = require('path');
@@ -17,7 +18,7 @@ console.log(subtract(1, 2));
 console.log(multiply(1, 2));
 console.log(divide(1, 2));
 // use the imported modules to get info about the server
-/*
+
 console.log(os.type());
 console.log(os.version());
 console.log(os.homedir());
@@ -28,7 +29,25 @@ console.log(__filename);
 console.log(path.dirname(__filename));
 console.log(path.basename(__filename));
 console.log(path.extname(__filename));
-*/
 
 // print out an object with all the info about the path
-// console.log(path.parse(__filename));
+console.log(path.parse(__filename));
+*/
+
+const fs = require('fs');
+const path = require('path');
+
+fs.readFile(path.join(__dirname, 'assets', 'lorem.txt'), 'utf8', (err, data) => {
+    if (err) {
+        throw err;
+    }
+    console.log(data.toString());
+});
+
+// asynchronous allows for this to run while the file is being read
+console.log('Hello...');
+
+process.on('uncaughtException', err => {
+    console.error(`There was an uncaught error: , ${err}`);
+    process.exit(1);
+});
