@@ -1,0 +1,11 @@
+{
+  "name": "nodejs_server_application",
+  "version": "1.0.0",
+  "description": "This program is to test NodeJS, testing out a basic server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

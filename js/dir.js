@@ -8,3 +8,12 @@ if(!fs.existsSync('./js/assets/new')) {
         console.log('Directory Created');
     });
 };
+
+if(fs.existsSync('./js/assets/new')) {
+    fs.rmdir('./js/assets/new', (err) => {
+        if (err) {
+            throw err;
+        }
+        console.log('Directory Deleted');
+    });
+};
